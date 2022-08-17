@@ -1,5 +1,8 @@
 package com.author.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +18,15 @@ public class AuthorServiceImpl implements IAuthorService {
 		AuthorBooks savedAuthor = authorrepo.save(authorbook);
 
 		return savedAuthor.getId();
+	}
+	@Override
+	public List<AuthorBooks> getAllAuthorBooks() {
+		return authorrepo.findAll();
+	}
+	@Override
+	public Optional<AuthorBooks> getAuthorBookByID(Integer id) {
+		// TODO Auto-generated method stub
+		return authorrepo.findById(id);
 	}
 
 }
